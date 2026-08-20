@@ -64,3 +64,28 @@ document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el))
 
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// Copy email to clipboard (mailto: alone is unreliable without a configured mail client)
+const toast = document.getElementById("toast");
+let toastTimer;
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+}
+
+document.querySelectorAll(".email-link").forEach((link) => {
+  link.addEventListener("click", async (e) => {
+    const email = "zaarajaved62@gmail.com";
+    if (!navigator.clipboard) return; // let mailto: proceed as-is
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText(email);
+      showToast("Email copied to clipboard");
+    } catch {
+      window.location.href = `mailto:${email}`;
+    }
+  });
+});
