@@ -264,7 +264,7 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 
 .iced-matcha {
   position: relative;
-  left: -16px;
+  left: -8px;
   width: 81px;
   height: 105px;
   color: var(--accent-dark);
