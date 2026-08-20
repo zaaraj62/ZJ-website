@@ -263,8 +263,10 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 }
 
 .iced-matcha {
-  width: 92px;
-  height: 119px;
+  position: relative;
+  left: -16px;
+  width: 81px;
+  height: 105px;
   color: var(--accent-dark);
   flex-shrink: 0;
 }
